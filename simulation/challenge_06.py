@@ -11,7 +11,6 @@ Examples:
     odd_one_out([10, 10, 7])          -> 7
     odd_one_out([3, 5, 3, 5, 8])      -> 8
 
-Read the problem, name the pattern in your head, then code it.
 """
 
 from testkit import check, report
@@ -27,4 +26,6 @@ if __name__ == "__main__":
     check("odd in middle", odd_one_out([3, 5, 3, 5, 8]), 8)
     check("single reading", odd_one_out([42]), 42)
     check("with zero", odd_one_out([0, 1, 1]), 0)
+    check("odd at start", odd_one_out([8, 3, 3, 5, 5]), 8)
+    check("negative value", odd_one_out([-2, 4, 4]), -2)
     report()

@@ -11,7 +11,6 @@ Examples:
     matches("abc", "aXbXXc") -> True
     matches("cab", "aXbXXc") -> False
 
-Read the problem, name the pattern in your head, then code it.
 """
 
 from testkit import check, report
@@ -27,5 +26,6 @@ if __name__ == "__main__":
     check("wrong order", matches("cab", "aXbXXc"), False)
     check("nothing typed", matches("", "anything"), True)
     check("name too short", matches("ab", "a"), False)
+    check("empty name", matches("a", ""), False)
     check("exact match", matches("abc", "abc"), True)
     report()

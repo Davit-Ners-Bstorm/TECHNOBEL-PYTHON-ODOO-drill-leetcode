@@ -12,7 +12,6 @@ Examples:
     is_rearrangement("listen", "silent") -> True
     is_rearrangement("admin", "demon")   -> False
 
-Read the problem, name the pattern in your head, then code it.
 """
 
 from testkit import check, report
@@ -27,6 +26,8 @@ if __name__ == "__main__":
     check("valid rearrangement", is_rearrangement("listen", "silent"), True)
     check("not related", is_rearrangement("admin", "demon"), False)
     check("different length", is_rearrangement("ab", "abc"), False)
+    check("same letters different counts", is_rearrangement("aab", "abb"), False)
+    check("case matters", is_rearrangement("a", "A"), False)
     check("identical", is_rearrangement("root", "root"), True)
     check("both empty", is_rearrangement("", ""), True)
     report()

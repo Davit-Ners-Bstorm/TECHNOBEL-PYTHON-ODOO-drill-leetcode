@@ -1,0 +1,34 @@
+"""
+CHALLENGE 33
+
+A release pipeline built versions 1 to n in order. At some point a bad
+change was introduced, and every version from that one onward is broken.
+You are given n and a checker `is_broken(version)` that returns True if a
+version is broken. Find and return the first broken version, calling the
+checker as few times as you can.
+
+The checker is passed in as a function, so you can call is_broken(v) for
+any version v from 1 to n.
+
+Examples:
+    first_broken(5, is_broken)  where versions 4 and 5 are broken -> 4
+    first_broken(10, is_broken) where only version 10 is broken   -> 10
+
+"""
+
+from testkit import check, report
+
+
+def first_broken(n, is_broken):
+    # TODO: implement
+    pass
+
+
+if __name__ == "__main__":
+    check("middle version", first_broken(5, lambda v: v >= 4), 4)
+    check("first is broken", first_broken(10, lambda v: v >= 1), 1)
+    check("only last broken", first_broken(10, lambda v: v >= 10), 10)
+    check("single version", first_broken(1, lambda v: v >= 1), 1)
+    check("large range", first_broken(100, lambda v: v >= 37), 37)
+    check("seven of seven", first_broken(7, lambda v: v >= 5), 5)
+    report()

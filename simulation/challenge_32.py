@@ -1,0 +1,31 @@
+"""
+CHALLENGE 32
+
+A layout engine needs the side length of the largest square that fits
+inside a given area, rounded down to a whole number. In other words,
+given a non-negative integer, return the integer part of its square root.
+You may not use any built-in square-root function.
+
+Examples:
+    int_sqrt(8)   -> 2   (since 2*2=4 <= 8 < 9=3*3)
+    int_sqrt(100) -> 10
+
+"""
+
+from testkit import check, report
+
+
+def int_sqrt(area):
+    # TODO: implement
+    pass
+
+
+if __name__ == "__main__":
+    check("perfect square", int_sqrt(4), 2)
+    check("rounds down", int_sqrt(8), 2)
+    check("zero", int_sqrt(0), 0)
+    check("one", int_sqrt(1), 1)
+    check("hundred", int_sqrt(100), 10)
+    check("just below", int_sqrt(99), 9)
+    check("large value", int_sqrt(2147395600), 46340)
+    report()

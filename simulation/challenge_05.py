@@ -12,9 +12,6 @@ Examples:
     well_formed("{[(])}")  -> False
     well_formed("(()")     -> False
 
-Read the problem, name the pattern in your head, then code it.
-Hint to yourself: which bracket must a closing one match? The most
-recent still-open one.
 """
 
 from testkit import check, report

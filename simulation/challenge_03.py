@@ -12,9 +12,6 @@ Examples:
     best_profit([7, 1, 5, 3, 6, 4]) -> 5    (buy at 1, sell at 6)
     best_profit([7, 6, 4, 3, 1])    -> 0    (prices only fall)
 
-Read the problem, name the pattern in your head, then code it.
-Hint to yourself: what is the cheapest price you have seen so far as
-you scan left to right?
 """
 
 from testkit import check, report

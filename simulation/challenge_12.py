@@ -1,0 +1,30 @@
+"""
+CHALLENGE 12
+
+A support system scans an incoming message and wants the position of the
+first character that appears only once in the whole message (useful for
+spotting a unique marker). Return the index of the first non-repeating
+character. If every character repeats, return -1.
+
+Examples:
+    first_unique("garden")  -> 0
+    first_unique("levelup") -> 2
+
+"""
+
+from testkit import check, report
+
+
+def first_unique(message):
+    # TODO: implement
+    pass
+
+
+if __name__ == "__main__":
+    check("first char unique", first_unique("garden"), 0)
+    check("unique later", first_unique("levelup"), 2)
+    check("all repeat", first_unique("aabb"), -1)
+    check("empty message", first_unique(""), -1)
+    check("single char", first_unique("z"), 0)
+    check("unique at end", first_unique("aabbc"), 4)
+    report()

@@ -11,7 +11,6 @@ Examples:
     has_repeat([1001, 1002, 1003, 1001]) -> True
     has_repeat([1, 2, 3, 4, 5])          -> False
 
-Read the problem, name the pattern in your head, then code it.
 """
 
 from testkit import check, report
