@@ -14,6 +14,10 @@ Examples:
 Think about: this is NOT "remove all duplicates". You only drop an item
 when it equals the one immediately before it. So you just need to
 remember the previous item as you walk through.
+Contract:
+Input may be a string, list, or tuple; comparison is case-sensitive.
+Empty input returns []. Return a list, even for string input.
+
 """
 
 from testkit import check, report
@@ -32,4 +36,8 @@ if __name__ == "__main__":
     check("list of ints", unique_in_order([1, 2, 2, 3, 3]), [1, 2, 3])
     check("empty", unique_in_order(""), [])
     check("no repeats", unique_in_order("ABC"), ['A', 'B', 'C'])
+    check('empty list', unique_in_order([]), [])
+    check('zero is not a sentinel', unique_in_order([0, 0, 1, 0]), [0, 1, 0])
+    check('tuple input', unique_in_order((1, 1, 2)), [1, 2])
+    check('none is not a sentinel', unique_in_order([None, None, 1, None]), [None, 1, None])
     report()

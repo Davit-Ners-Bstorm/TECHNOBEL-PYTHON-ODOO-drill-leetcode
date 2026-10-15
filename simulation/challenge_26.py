@@ -17,6 +17,10 @@ Examples:
     final_total(["5", "2", "C", "D", "+"])              -> 30
     final_total(["5", "-2", "4", "C", "D", "9", "+", "+"]) -> 27
 
+Contract:
+Every operation is valid: C and D have at least one preceding score,
+and + has at least two. An empty operation list returns 0.
+
 """
 
 from testkit import check, report
@@ -36,4 +40,5 @@ if __name__ == "__main__":
     check("cancel to empty", final_total(["1", "C"]), 0)
     check("simple sum", final_total(["3", "6", "+"]), 18)
     check("no operations", final_total([]), 0)
+    check('zero and negative', final_total(["0", "-3", "D", "+"]), -18)
     report()

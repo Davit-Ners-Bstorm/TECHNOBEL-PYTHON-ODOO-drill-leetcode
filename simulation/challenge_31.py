@@ -9,6 +9,9 @@ Examples:
     is_power_of_two(16) -> True
     is_power_of_two(3)  -> False
 
+Contract:
+Input is an integer (including negative values). Return a bool.
+
 """
 
 from testkit import check, report
@@ -27,4 +30,5 @@ if __name__ == "__main__":
     check("negative", is_power_of_two(-4), False)
     check("large power", is_power_of_two(1024), True)
     check("six", is_power_of_two(6), False)
+    check('large near miss', is_power_of_two(2**60 + 1), False)
     report()

@@ -33,6 +33,12 @@ python run_all.py
 This runs every file and prints a pass/fail summary per exercise. Handy
 to see where you still have work to do.
 
+Unsolved functions intentionally fail: this is normal on a fresh clone.
+The command exits with status 1 if any exercise fails, crashes, or times
+out, and 0 when all pass. Each exercise has a 10-second limit to stop
+accidental infinite loops; change it with `python run_all.py --timeout 30`.
+This is a local safety limit, not a performance benchmark for the exam.
+
 ## Folders
 
 - **warmup/** — the pattern is obvious from the title. Build confidence.
@@ -57,6 +63,14 @@ If the idea will not come, you jumped straight to step 4. Go back to 1.
 The test cases include edge cases on purpose: empty inputs, single
 elements, duplicates at the end, negatives, zeros. A solution that only
 passes the obvious case is fragile. Make all of them green.
+
+Each statement specifies its input domain: an empty input is only required
+when allowed there. Return the exact requested type: `True`, `1`, and
+`"true"` are different answers. Floats allow rounding differences through
+`math.isclose` with relative and absolute tolerances of `1e-9`.
+
+All green tests check the listed cases; also review any complexity,
+in-place mutation, or forbidden-operation requirements in the statement.
 
 ## Requirements
 

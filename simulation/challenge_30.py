@@ -12,6 +12,9 @@ Examples:
     is_lucky(19) -> True   (1+81=82, 64+4=68, 36+64=100, 1+0+0=1)
     is_lucky(2)  -> False
 
+Contract:
+n is an integer greater than 0. Return a bool.
+
 """
 
 from testkit import check, report
@@ -29,4 +32,5 @@ if __name__ == "__main__":
     check("seven is lucky", is_lucky(7), True)
     check("four is not", is_lucky(4), False)
     check("hundred is lucky", is_lucky(100), True)
+    check('ends in zero', is_lucky(10), True)
     report()

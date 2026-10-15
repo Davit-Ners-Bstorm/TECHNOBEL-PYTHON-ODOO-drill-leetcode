@@ -13,6 +13,10 @@ Examples:
     row_labels(3) -> ["1", "2", "Fizz"]
     row_labels(5) -> ["1", "2", "Fizz", "4", "Buzz"]
 
+Contract:
+n is a non-negative integer. For n = 0, return [].
+Return a list of strings, with the exact capitalization shown.
+
 """
 
 from testkit import check, report
@@ -31,4 +35,5 @@ if __name__ == "__main__":
            "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"])
     check("zero rows", row_labels(0), [])
     check("single row", row_labels(1), ["1"])
+    check('second fizzbuzz', row_labels(30)[-1], 'FizzBuzz')
     report()

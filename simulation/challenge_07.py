@@ -13,6 +13,10 @@ Examples:
     pair_for_total([2, 7, 11, 15], 9) -> [0, 1]
     pair_for_total([3, 2, 4], 6)      -> [1, 2]
 
+Contract:
+Prices and balance are integers. Each index can be used at most once.
+Indices start at 0; empty lists are allowed.
+
 """
 
 from testkit import check, report
@@ -31,4 +35,7 @@ if __name__ == "__main__":
     check("no pair", pair_for_total([1, 2, 3], 100), [])
     check("single product", pair_for_total([5], 5), [])
     check("empty catalog", pair_for_total([], 0), [])
+    check('cannot reuse index', pair_for_total([3, 4], 6), [])
+    check('negative values', pair_for_total([-3, 4, 0], 1), [0, 1])
+    check('two zeros', pair_for_total([0, 0], 0), [0, 1])
     report()

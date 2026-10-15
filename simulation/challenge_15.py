@@ -13,6 +13,10 @@ Examples:
     coupon_pair([2, 7, 11, 15], 9) -> [1, 2]
     coupon_pair([2, 3, 4], 6)      -> [1, 3]
 
+Contract:
+Values and price are integers; equal coupon values are allowed.
+Each position can be used at most once. Empty input is allowed.
+
 """
 
 from testkit import check, report
@@ -31,4 +35,6 @@ if __name__ == "__main__":
     check("no pair", coupon_pair([1, 2, 3], 100), [])
     check("single coupon", coupon_pair([5], 5), [])
     check("empty coupons", coupon_pair([], 10), [])
+    check('equal coupons', coupon_pair([3, 3], 6), [1, 2])
+    check('cannot reuse coupon', coupon_pair([3, 4], 6), [])
     report()

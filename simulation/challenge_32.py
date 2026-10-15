@@ -10,6 +10,10 @@ Examples:
     int_sqrt(8)   -> 2   (since 2*2=4 <= 8 < 9=3*3)
     int_sqrt(100) -> 10
 
+Contract:
+The input is a non-negative integer. Return an integer, not a float.
+Do not use sqrt, isqrt, or fractional powers such as area ** 0.5.
+
 """
 
 from testkit import check, report
@@ -28,4 +32,5 @@ if __name__ == "__main__":
     check("hundred", int_sqrt(100), 10)
     check("just below", int_sqrt(99), 9)
     check("large value", int_sqrt(2147395600), 46340)
+    check('large square boundary', int_sqrt(10**40 - 1), 99999999999999999999)
     report()

@@ -3,7 +3,7 @@ CHALLENGE 2
 
 A moderation system flags two usernames as "suspiciously related" when
 one is just a rearrangement of the other's characters (same letters,
-same counts, different order). Given two usernames, return True if one
+same counts, possibly the same order). Given two usernames, return True if one
 is a rearrangement of the other, otherwise False.
 
 Comparison is exact (case matters, treat every character literally).

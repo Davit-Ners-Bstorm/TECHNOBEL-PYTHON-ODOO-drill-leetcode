@@ -11,6 +11,9 @@ Examples:
     matches("abc", "aXbXXc") -> True
     matches("cab", "aXbXXc") -> False
 
+Contract:
+Comparison is case-sensitive. Both strings may be empty.
+
 """
 
 from testkit import check, report
@@ -28,4 +31,7 @@ if __name__ == "__main__":
     check("name too short", matches("ab", "a"), False)
     check("empty name", matches("a", ""), False)
     check("exact match", matches("abc", "abc"), True)
+    check('both empty', matches("", ""), True)
+    check('repeated letter needed', matches("aa", "a"), False)
+    check('case matters', matches("A", "a"), False)
     report()

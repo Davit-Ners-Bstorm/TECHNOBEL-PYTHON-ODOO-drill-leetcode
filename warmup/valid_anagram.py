@@ -14,6 +14,10 @@ Examples:
 
 Think about: how do you compare the contents of two strings while
 ignoring the order? What data structure counts things for you?
+Contract:
+Comparison is case-sensitive and every character counts, including spaces.
+Empty strings are allowed. Return a bool.
+
 """
 
 from testkit import check, report
@@ -31,4 +35,7 @@ if __name__ == "__main__":
     check("both empty", is_anagram("", ""), True)
     check("same letters repeated", is_anagram("aacc", "ccac"), False)
     check("single char match", is_anagram("z", "z"), True)
+    check('case matters', is_anagram("A", "a"), False)
+    check('spaces count', is_anagram("a ", " a"), True)
+    check('positive repeated counts', is_anagram("aabb", "baba"), True)
     report()

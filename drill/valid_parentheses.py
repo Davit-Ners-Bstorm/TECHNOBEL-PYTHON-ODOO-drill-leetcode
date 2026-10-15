@@ -16,6 +16,9 @@ Examples:
 Think about: a closing bracket must match the MOST RECENT unmatched
 opening bracket. "Most recent" is the clue: which data structure gives
 you back the last thing you put in?
+Contract:
+The empty string is valid. Return a bool.
+
 """
 
 from testkit import check, report

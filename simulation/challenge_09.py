@@ -12,6 +12,10 @@ Examples:
     top_viewed([1, 1, 1, 2, 2, 3], 2) -> [1, 2]
     top_viewed([4, 4, 4, 5, 5, 6, 6, 6, 6], 2) -> [6, 4]
 
+Contract:
+IDs are integers and 0 <= k <= the number of distinct IDs.
+For k = 0, return []; views may then be empty.
+
 """
 
 from testkit import check, report
@@ -31,4 +35,6 @@ if __name__ == "__main__":
     check("k equals distinct", top_viewed([1, 1, 2, 2, 3], 3), [1, 2, 3])
     check("zero requested with views", top_viewed([1, 1, 2], 0), [])
     check("zero requested", top_viewed([], 0), [])
+    check('negative tie breaker', top_viewed([-2, -2, 3, 3], 1), [-2])
+    check('input order is not tie order', top_viewed([3, 2, 1], 2), [1, 2])
     report()

@@ -15,6 +15,9 @@ Examples:
 Think about: the list is sorted, so you do not need to scan it all.
 Keep a low and a high boundary and halve the search space each step.
 Where do low and high end up when the target is not present?
+Contract:
+The list may be empty (return 0). Required time: O(log n).
+
 """
 
 from testkit import check, report
@@ -32,4 +35,8 @@ if __name__ == "__main__":
     check("insert at start", search_insert([1, 3, 5, 6], 0), 0)
     check("single element found", search_insert([1], 1), 0)
     check("single element after", search_insert([1], 2), 1)
+    check('empty list', search_insert([], 3), 0)
+    check('negative values', search_insert([-5, -2, 3], -3), 1)
+    check('found first', search_insert([1, 3, 5], 1), 0)
+    check('found last', search_insert([1, 3, 5], 5), 2)
     report()

@@ -12,6 +12,10 @@ Examples:
     flip_vowels("hello")    -> "holle"
     flip_vowels("computer") -> "cemputor"
 
+Contract:
+Input may be empty. Only the ten vowel characters listed above move;
+y and accented letters are not treated as vowels here.
+
 """
 
 from testkit import check, report
@@ -29,4 +33,5 @@ if __name__ == "__main__":
     check("no vowels", flip_vowels("xyz"), "xyz")
     check("empty", flip_vowels(""), "")
     check("single vowel", flip_vowels("hi"), "hi")
+    check('all vowels mixed case', flip_vowels("aEiOu"), 'uOiEa')
     report()

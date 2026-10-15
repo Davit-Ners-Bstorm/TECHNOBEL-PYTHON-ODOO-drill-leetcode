@@ -12,6 +12,9 @@ Examples:
     in_both([1, 2, 2, 1], [2, 2])       -> [2]
     in_both([4, 9, 5], [9, 4, 9, 8, 4]) -> [4, 9]
 
+Contract:
+IDs are integers; either input list may be empty.
+
 """
 
 from testkit import check, report
@@ -30,4 +33,5 @@ if __name__ == "__main__":
     check("both empty", in_both([], []), [])
     check("all duplicates", in_both([1, 1, 1], [1, 1]), [1])
     check("same set", in_both([1, 2, 3], [3, 2, 1]), [1, 2, 3])
+    check('negative IDs', in_both([-2, 1, -2], [-2, 3]), [-2])
     report()

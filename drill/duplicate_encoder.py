@@ -16,6 +16,9 @@ Examples:
 Think about: you need to know each character's total count BEFORE you
 start building the answer. So make one pass to count, then a second
 pass to build the output.
+Contract:
+Input is an ASCII string and may be empty. Return a string.
+
 """
 
 from testkit import check, report
@@ -28,8 +31,11 @@ def duplicate_encode(word):
 
 if __name__ == "__main__":
     check("all unique", duplicate_encode("din"), "(((")
-    check("all duplicated", duplicate_encode("recede"), "()()()")
+    check("mixed frequencies", duplicate_encode("recede"), "()()()")
     check("case insensitive", duplicate_encode("Success"), ")())())")
     check("symbols and spaces", duplicate_encode("(( @"), "))((")
     check("empty string", duplicate_encode(""), "")
+    check('same letter different case', duplicate_encode("aA"), '))')
+    check('single space', duplicate_encode(" "), '(')
+    check('all repeated', duplicate_encode("aaaa"), '))))')
     report()

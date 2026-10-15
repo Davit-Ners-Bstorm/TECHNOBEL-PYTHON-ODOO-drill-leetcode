@@ -12,6 +12,9 @@ Examples:
     well_formed("{[(])}")  -> False
     well_formed("(()")     -> False
 
+Contract:
+The empty configuration is well-formed. Return a bool.
+
 """
 
 from testkit import check, report
@@ -29,4 +32,6 @@ if __name__ == "__main__":
     check("empty", well_formed(""), True)
     check("flat sequence", well_formed("()[]{}"), True)
     check("lone closer", well_formed("]"), False)
+    check('opens without closes', well_formed("([{"), False)
+    check('close before open', well_formed(")("), False)
     report()

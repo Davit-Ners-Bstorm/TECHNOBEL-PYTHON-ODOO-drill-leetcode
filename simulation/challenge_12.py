@@ -10,6 +10,10 @@ Examples:
     first_unique("garden")  -> 0
     first_unique("levelup") -> 2
 
+Contract:
+Comparison is case-sensitive and spaces count as characters. Indices
+start at 0. An empty message returns -1.
+
 """
 
 from testkit import check, report
@@ -27,4 +31,6 @@ if __name__ == "__main__":
     check("empty message", first_unique(""), -1)
     check("single char", first_unique("z"), 0)
     check("unique at end", first_unique("aabbc"), 4)
+    check('spaces count', first_unique("aa "), 2)
+    check('case matters', first_unique("aA"), 0)
     report()

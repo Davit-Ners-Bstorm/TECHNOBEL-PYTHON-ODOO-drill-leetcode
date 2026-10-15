@@ -12,6 +12,10 @@ Examples:
     best_average([1, 12, -5, -6, 50, 3], 4) -> 12.75
     best_average([5], 1)                     -> 5.0
 
+Contract:
+Loads are integers and may be negative. Floating-point rounding
+differences up to the test helper tolerance are accepted.
+
 """
 
 from testkit import check, report
@@ -29,4 +33,6 @@ if __name__ == "__main__":
     check("all negative", best_average([-1, -2, -3, -4], 2), -1.5)
     check("uniform", best_average([1, 1, 1, 1], 2), 1.0)
     check("whole array", best_average([7, 4, 4], 3), 5.0)
+    check('fractional result', best_average([0, 0, 1], 3), 0.3333333333333333)
+    check('best window last', best_average([1, 2, 8, 9], 2), 8.5)
     report()

@@ -9,6 +9,10 @@ Examples:
     longest_clean_run("abcabcbb") -> 3   ("abc")
     longest_clean_run("pwwkew")   -> 3   ("wke")
 
+Contract:
+Comparison is case-sensitive; spaces also count as event codes.
+Empty input returns 0. Events must remain contiguous.
+
 """
 
 from testkit import check, report
@@ -27,4 +31,6 @@ if __name__ == "__main__":
     check("two distinct", longest_clean_run("au"), 2)
     check("tricky reset", longest_clean_run("dvdf"), 3)
     check("repeat at ends", longest_clean_run("abba"), 2)
+    check('spaces are events', longest_clean_run("a b a"), 3)
+    check('case matters', longest_clean_run("aA"), 2)
     report()

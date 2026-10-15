@@ -11,6 +11,10 @@ Examples:
     locate([4, 5, 6, 7, 0, 1, 2], 0) -> 4
     locate([4, 5, 6, 7, 0, 1, 2], 3) -> -1
 
+Contract:
+Tickets and target are integers. The list may be empty or not rotated.
+Required time: O(log n).
+
 """
 
 from testkit import check, report
@@ -30,4 +34,7 @@ if __name__ == "__main__":
     check("empty", locate([], 5), -1)
     check("small rotation", locate([5, 1, 3], 5), 0)
     check("not rotated", locate([1, 2, 3, 4], 3), 2)
+    check('two rotated first', locate([2, 1], 2), 0)
+    check('two rotated second', locate([2, 1], 1), 1)
+    check('pivot is smallest', locate([3, 4, 1, 2], 1), 2)
     report()

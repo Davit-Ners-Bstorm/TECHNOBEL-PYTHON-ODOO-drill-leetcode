@@ -12,6 +12,11 @@ Examples:
     scramble_spots("cbaebabacd", "abc") -> [0, 6]
     scramble_spots("abab", "ab")        -> [0, 1, 2]
 
+Contract:
+Text and keyword contain lowercase English letters. The keyword is
+non-empty; text may be empty. Match counts, not just the set of letters.
+Indices start at 0; overlapping matches are included.
+
 """
 
 from testkit import check, report
@@ -29,4 +34,6 @@ if __name__ == "__main__":
     check("empty text", scramble_spots("", "a"), [])
     check("keyword too long", scramble_spots("a", "ab"), [])
     check("single spot", scramble_spots("baa", "aa"), [1])
+    check('counts matter', scramble_spots("aababb", "aab"), [0, 1])
+    check('single letter overlaps', scramble_spots("aaa", "a"), [0, 1, 2])
     report()

@@ -12,6 +12,10 @@ Examples:
     roman_value("LVIII")   -> 58
     roman_value("MCMXCIV") -> 1994
 
+Contract:
+Inputs are valid uppercase Roman numerals from 1 to 3999.
+As a local extension, the empty string returns 0.
+
 """
 
 from testkit import check, report
@@ -30,4 +34,5 @@ if __name__ == "__main__":
     check("nine", roman_value("IX"), 9)
     check("recent year", roman_value("MMXXIV"), 2024)
     check("empty", roman_value(""), 0)
+    check('largest canonical numeral', roman_value("MMMCMXCIX"), 3999)
     report()

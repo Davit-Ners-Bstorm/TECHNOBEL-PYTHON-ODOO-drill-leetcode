@@ -10,6 +10,10 @@ Examples:
     sink_zeros([0, 1, 0, 3, 12]) -> [1, 3, 12, 0, 0]
     sink_zeros([4, 0, 5, 0, 0, 6]) -> [4, 5, 6, 0, 0, 0]
 
+Contract:
+Figures are integers and may be negative. Empty lists are allowed.
+Modify the original list in place and return that same list object.
+
 """
 
 from testkit import check, report
@@ -27,4 +31,9 @@ if __name__ == "__main__":
     check("no zeros", sink_zeros([1, 2, 3]), [1, 2, 3])
     check("empty", sink_zeros([]), [])
     check("single zero", sink_zeros([0]), [0])
+    check('negative figures keep order', sink_zeros([0, -2, 3, 0, -1]), [-2, 3, -1, 0, 0])
+    original = [0, 1, 0, -2]
+    result = sink_zeros(original)
+    check("original list modified", original, [1, -2, 0, 0])
+    check("same list returned", result is original, True)
     report()

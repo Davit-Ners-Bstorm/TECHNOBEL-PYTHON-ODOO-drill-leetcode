@@ -11,6 +11,9 @@ Examples:
     winner([3, 2, 3])             -> 3
     winner([2, 2, 1, 1, 1, 2, 2]) -> 2
 
+Contract:
+Votes are integers and the list is non-empty.
+
 """
 
 from testkit import check, report
@@ -28,4 +31,5 @@ if __name__ == "__main__":
     check("unanimous", winner([5, 5, 5, 5]), 5)
     check("majority is zero", winner([0, 0, 1]), 0)
     check("just over half", winner([7, 7, 7, 1, 2]), 7)
+    check('negative winner', winner([-1, 2, -1]), -1)
     report()

@@ -12,6 +12,10 @@ Examples:
     distinct_count([1, 1, 2])                      -> 2
     distinct_count([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]) -> 5
 
+Contract:
+Readings are integers. Empty input returns 0. You only need to return
+a count; compacting or modifying the list is not required.
+
 """
 
 from testkit import check, report
@@ -30,4 +34,5 @@ if __name__ == "__main__":
     check("all same", distinct_count([2, 2, 2, 2]), 1)
     check("already distinct", distinct_count([1, 2, 3, 4]), 4)
     check("negative readings", distinct_count([-2, -2, -1, 0, 0]), 3)
+    check('all negative duplicates', distinct_count([-3, -3, -2, -2]), 2)
     report()

@@ -10,6 +10,10 @@ Examples:
     almost_palindrome("abca") -> True   (remove 'b' or 'c')
     almost_palindrome("abc")  -> False
 
+Contract:
+Comparison is exact and case-sensitive; do not remove punctuation or
+spaces unless using your one deletion. Empty input returns True.
+
 """
 
 from testkit import check, report
@@ -29,4 +33,6 @@ if __name__ == "__main__":
     check("two chars", almost_palindrome("ab"), True)
     check("remove first", almost_palindrome("deeee"), True)
     check("needs two removals", almost_palindrome("abcda"), False)
+    check('must try deleting right side', almost_palindrome("abbab"), True)
+    check('case matters', almost_palindrome("Aaab"), False)
     report()

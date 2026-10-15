@@ -12,6 +12,10 @@ Examples:
     squash("abbaca") -> "ca"
     squash("azxxzy") -> "ay"
 
+Contract:
+Comparison is case-sensitive; spaces and punctuation count as characters.
+Empty input returns "". Remove pairs, not entire runs of any length.
+
 """
 
 from testkit import check, report
@@ -30,4 +34,7 @@ if __name__ == "__main__":
     check("empty", squash(""), "")
     check("single char", squash("a"), "a")
     check("odd run", squash("aaa"), "a")
+    check('even run', squash("aaaa"), '')
+    check('cascade to empty', squash("abccba"), '')
+    check('case matters', squash("aA"), 'aA')
     report()

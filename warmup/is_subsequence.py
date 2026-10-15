@@ -13,6 +13,9 @@ Examples:
 Think about: walk through `t` with one pointer. Keep a second pointer
 on `s`. Every time the current character of `t` matches the character
 `s` is waiting for, advance the `s` pointer. Did `s` reach the end?
+Contract:
+Comparison is case-sensitive; both strings may be empty. Return a bool.
+
 """
 
 from testkit import check, report
@@ -30,4 +33,7 @@ if __name__ == "__main__":
     check("empty t", is_subsequence("a", ""), False)
     check("equal strings", is_subsequence("abc", "abc"), True)
     check("order matters", is_subsequence("ba", "ab"), False)
+    check('both empty', is_subsequence("", ""), True)
+    check('cannot reuse one character', is_subsequence("aa", "a"), False)
+    check('case sensitive', is_subsequence("A", "a"), False)
     report()

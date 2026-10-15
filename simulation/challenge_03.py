@@ -12,6 +12,9 @@ Examples:
     best_profit([7, 1, 5, 3, 6, 4]) -> 5    (buy at 1, sell at 6)
     best_profit([7, 6, 4, 3, 1])    -> 0    (prices only fall)
 
+Contract:
+Prices are non-negative integers. Fewer than two days returns 0.
+
 """
 
 from testkit import check, report
@@ -29,4 +32,6 @@ if __name__ == "__main__":
     check("rising prices", best_profit([1, 2, 3, 4]), 3)
     check("single day", best_profit([5]), 0)
     check("empty", best_profit([]), 0)
+    check('cannot sell before buying', best_profit([9, 2, 3]), 1)
+    check('two days', best_profit([0, 4]), 4)
     report()

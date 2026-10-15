@@ -11,6 +11,9 @@ Examples:
     has_repeat([1001, 1002, 1003, 1001]) -> True
     has_repeat([1, 2, 3, 4, 5])          -> False
 
+Contract:
+IDs are integers. An empty list returns False.
+
 """
 
 from testkit import check, report
@@ -27,4 +30,5 @@ if __name__ == "__main__":
     check("empty day", has_repeat([]), False)
     check("one order", has_repeat([42]), False)
     check("repeat far apart", has_repeat([7, 1, 2, 3, 4, 7]), True)
+    check('zero duplicate', has_repeat([0, 1, 0]), True)
     report()

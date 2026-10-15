@@ -11,6 +11,10 @@ Examples:
     most_water([1, 8, 6, 2, 5, 4, 8, 3, 7]) -> 49
     most_water([1, 1])                       -> 1
 
+Contract:
+Heights are non-negative integers. Fewer than two walls returns 0.
+For indices i < j, the capacity is min(heights[i], heights[j]) * (j - i).
+
 """
 
 from testkit import check, report
@@ -28,4 +32,6 @@ if __name__ == "__main__":
     check("small dip", most_water([1, 2, 1]), 2)
     check("empty", most_water([]), 0)
     check("single wall", most_water([5]), 0)
+    check('zero walls', most_water([0, 0, 0]), 0)
+    check('width matters', most_water([2, 1, 2]), 4)
     report()

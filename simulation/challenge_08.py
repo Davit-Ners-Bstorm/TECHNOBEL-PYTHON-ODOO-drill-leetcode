@@ -2,7 +2,7 @@
 CHALLENGE 8
 
 A catalog tool wants to cluster product codes that are built from the
-exact same set of letters in a different order (same letters, same
+exact same letters, possibly in a different order (same letters, same
 counts). Given a list of product codes, group together the ones that are
 rearrangements of each other.
 
@@ -15,6 +15,10 @@ Examples:
         -> [["ate", "eat", "tea"], ["bat"], ["nat", "tan"]]
     cluster(["abc", "bca", "xyz"])
         -> [["abc", "bca"], ["xyz"]]
+
+Contract:
+Codes are strings; comparison is case-sensitive. Empty codes and an
+empty list are allowed. Keep repeated codes in the output.
 
 """
 
@@ -39,4 +43,7 @@ if __name__ == "__main__":
     check("duplicates kept",
           cluster(["ab", "ba", "ab"]),
           [["ab", "ab", "ba"]])
+    check('same letters different counts', cluster(["aab", "abb", "aba"]), [['aab', 'aba'], ['abb']])
+    check('empty codes kept', cluster(["", ""]), [['', '']])
+    check('case matters', cluster(["a", "A"]), [['A'], ['a']])
     report()

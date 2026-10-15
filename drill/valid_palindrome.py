@@ -15,6 +15,9 @@ Think about: you could clean the string first, then compare it to its
 reverse. The two-pointer version is nicer: one pointer from the left,
 one from the right, skip non-alphanumeric characters, compare as you
 move inward.
+Contract:
+Input is ASCII and may be empty. Only a-z, A-Z, and 0-9 are retained.
+
 """
 
 from testkit import check, report
@@ -32,4 +35,6 @@ if __name__ == "__main__":
     check("single letter", is_palindrome("a"), True)
     check("alphanumeric mix", is_palindrome("0P"), False)
     check("digits palindrome", is_palindrome("12321"), True)
+    check('empty', is_palindrome(""), True)
+    check('punctuation ignored', is_palindrome(".,!?"), True)
     report()

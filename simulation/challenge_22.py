@@ -7,12 +7,16 @@ by a consistent one-to-one replacement: every occurrence of a character
 maps to the same character, and no two different characters map to the
 same one.
 
-Given two equal-length tokens, return True if they are structurally
-equal, otherwise False.
+Given two tokens, return True if they are structurally equal, otherwise
+False. Tokens of different lengths are never structurally equal.
 
 Examples:
     same_shape("egg", "add")     -> True
     same_shape("foo", "bar")     -> False
+
+Contract:
+Comparison is case-sensitive and every character counts.
+A character may map to itself. Two empty tokens return True.
 
 """
 
@@ -33,4 +37,6 @@ if __name__ == "__main__":
     check("both empty", same_shape("", ""), True)
     check("collapse", same_shape("ab", "aa"), False)
     check("single char", same_shape("a", "z"), True)
+    check('self mapping', same_shape("abc", "abc"), True)
+    check('reverse length mismatch', same_shape("a", "ab"), False)
     report()

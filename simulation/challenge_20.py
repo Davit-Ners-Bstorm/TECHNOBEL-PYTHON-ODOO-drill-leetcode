@@ -11,6 +11,10 @@ Examples:
     reverse_words("the sky is blue") -> "blue is sky the"
     reverse_words("  hello world  ") -> "world hello"
 
+Contract:
+Whitespace includes spaces, tabs, and newlines. Empty input or input
+containing only whitespace returns "".
+
 """
 
 from testkit import check, report
@@ -28,4 +32,5 @@ if __name__ == "__main__":
     check("single word", reverse_words("single"), "single")
     check("only spaces", reverse_words("   "), "")
     check("empty", reverse_words(""), "")
+    check('tabs and newlines', reverse_words("one\ttwo\nthree"), 'three two one')
     report()

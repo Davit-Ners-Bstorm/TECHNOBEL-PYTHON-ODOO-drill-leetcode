@@ -1,14 +1,18 @@
 """
 CHALLENGE 18
 
-A file browser groups uploaded files by the longest leading path they
-all share. Given a list of file names, return the longest starting string
+A file browser groups uploaded files by the longest character prefix they
+all share (not a directory path). Given a list of file names, return the longest starting string
 that every name begins with. If they share no common start, return the
 empty string.
 
 Examples:
     common_start(["flower", "flow", "flight"]) -> "fl"
     common_start(["dog", "racecar", "car"])    -> ""
+
+Contract:
+Comparison is case-sensitive and character by character.
+An empty list returns "".
 
 """
 
@@ -30,4 +34,6 @@ if __name__ == "__main__":
     check("empty list", common_start([]), "")
     check("identical names", common_start(["same", "same"]), "same")
     check("contains empty", common_start(["abc", ""]), "")
+    check('prefix ends inside a name', common_start(["ab", "abc"]), 'ab')
+    check('case matters', common_start(["Ab", "ab"]), '')
     report()

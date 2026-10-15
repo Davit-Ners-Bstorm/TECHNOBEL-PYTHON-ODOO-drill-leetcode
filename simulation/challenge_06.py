@@ -11,6 +11,10 @@ Examples:
     odd_one_out([10, 10, 7])          -> 7
     odd_one_out([3, 5, 3, 5, 8])      -> 8
 
+Contract:
+The list is non-empty and contains integers. The frequency rule above
+is guaranteed; inputs violating it are out of scope.
+
 """
 
 from testkit import check, report
@@ -28,4 +32,5 @@ if __name__ == "__main__":
     check("with zero", odd_one_out([0, 1, 1]), 0)
     check("odd at start", odd_one_out([8, 3, 3, 5, 5]), 8)
     check("negative value", odd_one_out([-2, 4, 4]), -2)
+    check('single zero', odd_one_out([0]), 0)
     report()

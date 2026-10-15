@@ -12,6 +12,9 @@ Examples:
 Think about: as you walk through the list, how do you remember which
 values you have already seen? What lets you check "have I seen this?"
 in one step?
+Contract:
+Input: a list of integers; it may be empty. Return a bool.
+
 """
 
 from testkit import check, report
@@ -29,4 +32,5 @@ if __name__ == "__main__":
     check("single element", contains_duplicate([7]), False)
     check("all same", contains_duplicate([5, 5, 5, 5]), True)
     check("duplicate at the end", contains_duplicate([1, 2, 3, 4, 2]), True)
+    check('negative duplicate', contains_duplicate([-1, 0, -1]), True)
     report()
